@@ -13,6 +13,30 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
+// API
+// ========================================================
+
+var router = express.Router();
+
+router.get('/', function(req, res){
+  res.json({
+    items: [],
+    pagination: {}
+  })
+});
+
+app.use('/api', router);
+
+
+
+
+
+
+
+
+
+// =========================================================
+// END API
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
