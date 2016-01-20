@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var low = require('lowdb');
+var storage = require('lowdb/file-sync');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -17,6 +19,7 @@ app.get('/', function(request, response) {
 // ========================================================
 
 var router = express.Router();
+var db = low('db.json', {storage: storage});
 
 router.get('/', function(req, res){
   res.json({
