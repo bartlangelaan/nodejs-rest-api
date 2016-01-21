@@ -15,7 +15,7 @@ var serializer = new EasyXml({
 });
 
 var API_DOMAIN = "https://bart-langelaan-rest-api.herokuapp.com/api/";
-//API_DOMAIN = "https://nkfiychwby.localtunnel.me/api/";
+API_DOMAIN = "https://nkfiychwby.localtunnel.me/api/";
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -177,6 +177,26 @@ router.get('/:id', function(req, res){
   }
   else{
     res.sendStatus(415);
+  }
+});
+
+// Detail: GET-method  =====================================
+
+router.put('/:id', function(req, res){
+  var data = db("items").find({
+    id: req.params.id
+  });
+  if(!data){
+    res.sendStatus(404);
+  }
+  else if(!req.body.title && !req.body.body && !req.body.user){
+    res.sendStatus(400);
+  }
+  else {
+    if(req.body.title) data.title = req.body.title;
+    if(req.body.body) data.body = req.body.body;
+    if(req.body.user) data.user = req.body.user;
+    res.sendStatus(202);
   }
 });
 
