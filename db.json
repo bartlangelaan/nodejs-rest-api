@@ -1,0 +1,100 @@
+{
+  "items": [
+    {
+      "title": "Een titel",
+      "body": "Een body",
+      "user": "bart",
+      "id": "79e8c5f3-6899-4e65-ac7f-475032a87212",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://bart-langelaan-rest-api.herokuapp.com/api/79e8c5f3-6899-4e65-ac7f-475032a87212"
+        },
+        {
+          "rel": "collection",
+          "href": "https://bart-langelaan-rest-api.herokuapp.com/api/"
+        }
+      ]
+    },
+    {
+      "title": "Een titel",
+      "body": "Een body",
+      "user": "bart",
+      "id": "049a3500-53b0-4537-81c9-f36b47580d4a",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://bart-langelaan-rest-api.herokuapp.com/api/049a3500-53b0-4537-81c9-f36b47580d4a"
+        },
+        {
+          "rel": "collection",
+          "href": "https://bart-langelaan-rest-api.herokuapp.com/api/"
+        }
+      ]
+    },
+    {
+      "title": "Een titel",
+      "body": "Een body",
+      "user": "bart",
+      "id": "be7b3730-1907-411d-84c8-f4c4a61f42ab",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://bart-langelaan-rest-api.herokuapp.com/api/be7b3730-1907-411d-84c8-f4c4a61f42ab"
+        },
+        {
+          "rel": "collection",
+          "href": "https://bart-langelaan-rest-api.herokuapp.com/api/"
+        }
+      ]
+    },
+    {
+      "title": "Een titel",
+      "body": "Een body",
+      "user": "bart",
+      "id": "eb256f9f-0881-4291-99fb-c210492d8d10",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://bart-langelaan-rest-api.herokuapp.com/api/eb256f9f-0881-4291-99fb-c210492d8d10"
+        },
+        {
+          "rel": "collection",
+          "href": "https://bart-langelaan-rest-api.herokuapp.com/api/"
+        }
+      ]
+    },
+    {
+      "title": "Een titel",
+      "body": "Een body",
+      "user": "bart",
+      "id": "f9955ae5-c180-41c2-8615-0af376b4fff2",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://bart-langelaan-rest-api.herokuapp.com/api/f9955ae5-c180-41c2-8615-0af376b4fff2"
+        },
+        {
+          "rel": "collection",
+          "href": "https://bart-langelaan-rest-api.herokuapp.com/api/"
+        }
+      ]
+    },
+    {
+      "title": "Een titel",
+      "body": "Een body",
+      "user": "bart",
+      "id": "d5c99f6f-99c1-4320-8ea6-d9d44199d1ba",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://bart-langelaan-rest-api.herokuapp.com/api/d5c99f6f-99c1-4320-8ea6-d9d44199d1ba"
+        },
+        {
+          "rel": "collection",
+          "href": "https://bart-langelaan-rest-api.herokuapp.com/api/"
+        }
+      ]
+    }
+  ]
+}
