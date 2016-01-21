@@ -18,14 +18,30 @@ app.get('/', function(request, response) {
 // API
 // ========================================================
 
+// Load variables  ========================================
+
 var router = express.Router();
 var db = low('db.json', {storage: storage});
 
+// Enable logging  ========================================
+
 router.use(function(req, res, next){
   console.log('> Request done: ');
-  console.log('  ' + req.method + ' ' + req.url + ' ' + req.headers.accept);
+  console.log('  ' +
+      req.method + ' ' +
+      req.url + ' ' +
+      req.headers.accept);
   next();
 });
+
+// Collection: OPTIONS-method  =============================
+
+router.options('/', function(req, res, next){
+  res.header('Allow', 'GET,POST,OPTIONS');
+  res.sendStatus(200);
+});
+
+// Collection: GET-method  =================================
 
 router.get('/', function(req, res){
   var data = {
@@ -42,16 +58,11 @@ router.get('/', function(req, res){
 
 app.use('/api', router);
 
-
-
-
-
-
-
-
-
 // =========================================================
 // END API
+
+
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
