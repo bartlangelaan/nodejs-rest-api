@@ -178,6 +178,12 @@ router.get('/:id', function(req, res){
   }
 });
 
+// Detail: DELETE-method  ==================================
+
+router.delete('/:id', function(req, res){
+  res.sendStatus(204);
+});
+
 app.use('/api', router);
 
 // =========================================================
