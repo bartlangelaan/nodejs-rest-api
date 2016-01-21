@@ -165,8 +165,10 @@ router.get('/:id', function(req, res){
   var data = db("items").find({
     id: req.params.id
   });
-
-  if(req.headers.accept == "application/json"){
+  if(!data){
+    res.sendStatus(404);
+  }
+  else if(req.headers.accept == "application/json"){
     res.json(data);
   }
   else if(req.headers.accept == "application/xml"){
@@ -181,6 +183,9 @@ router.get('/:id', function(req, res){
 // Detail: DELETE-method  ==================================
 
 router.delete('/:id', function(req, res){
+  db('items').remove({
+    id: req.params.id
+  });
   res.sendStatus(204);
 });
 
