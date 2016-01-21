@@ -28,10 +28,16 @@ router.use(function(req, res, next){
 });
 
 router.get('/', function(req, res){
-  res.json({
+  var data = {
     items: [],
     pagination: {}
-  })
+  };
+  if(req.headers.accept == "application/json"){
+    res.json(data);
+  }
+  else{
+    res.sendStatus(415);
+  }
 });
 
 app.use('/api', router);
