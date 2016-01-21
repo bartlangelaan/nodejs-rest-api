@@ -126,6 +126,8 @@ router.get('/', function(req, res){
   }
 });
 
+// Detail: GET-method  =====================================
+
 router.get('/:id', function(req, res){
   var data = db("items").find({
     id: req.params.id
