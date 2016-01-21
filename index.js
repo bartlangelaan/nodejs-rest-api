@@ -126,6 +126,23 @@ router.get('/', function(req, res){
   }
 });
 
+router.get('/:id', function(req, res){
+  var data = db("items").find({
+    id: req.params.id
+  });
+
+  if(req.headers.accept == "application/json"){
+    res.json(data);
+  }
+  else if(req.headers.accept == "application/xml"){
+    res.header("Content-Type", "application/xml");
+    res.send(serializer.render(data));
+  }
+  else{
+    res.sendStatus(415);
+  }
+});
+
 app.use('/api', router);
 
 // =========================================================
