@@ -9,6 +9,7 @@
     "start-locally": "npm run localtunnel | npm run start"
   },
   "dependencies": {
+    "easyxml": "^1.0.0",
     "ejs": "2.3.3",
     "express": "4.13.3",
     "lowdb": "^0.12.2",

@@ -3,6 +3,15 @@ var app = express();
 var low = require('lowdb');
 var storage = require('lowdb/file-sync');
 var uuid = require('uuid');
+var EasyXml = require('easyxml');
+var serializer = new EasyXml({
+  singularizeChildren: true,
+  allowAttributes: true,
+  rootElement: 'pils',
+  dateFormat: 'ISO',
+  indent: 2,
+  manifest: true
+});
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -104,6 +113,10 @@ router.get('/', function(req, res){
   };
   if(req.headers.accept == "application/json"){
     res.json(data);
+  }
+  else if(req.headers.accept == "application/xml"){
+    res.header("Content-Type", "application/xml");
+    res.send(serializer.render(data));
   }
   else{
     res.sendStatus(415);
