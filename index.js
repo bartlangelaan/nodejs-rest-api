@@ -139,6 +139,12 @@ router.get('/', function(req, res){
 
 router.post('/', function(req, res){
   if(req.body.title && req.body.body && req.body.user){
+    db("items").push({
+      id: uuid(),
+      title: req.body.title,
+      body: req.body.body,
+      user: req.body.user
+    });
     res.sendStatus(201);
   }
   else{
