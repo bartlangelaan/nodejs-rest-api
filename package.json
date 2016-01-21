@@ -11,7 +11,8 @@
   "dependencies": {
     "ejs": "2.3.3",
     "express": "4.13.3",
-    "lowdb": "^0.12.2"
+    "lowdb": "^0.12.2",
+    "uuid": "^2.0.1"
   },
   "engines": {
     "node": "0.12.7"
