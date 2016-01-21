@@ -4,7 +4,9 @@
   "description": "A sample Node.js app using Express 4",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "localtunnel": "lt --port 5000 --subdomain nkfiychwby",
+    "start-locally": "npm run localtunnel | npm run start"
   },
   "dependencies": {
     "ejs": "2.3.3",

@@ -21,6 +21,12 @@ app.get('/', function(request, response) {
 var router = express.Router();
 var db = low('db.json', {storage: storage});
 
+router.use(function(req, res, next){
+  console.log('> Request done: ');
+  console.log('  ' + req.method + ' ' + req.url + ' ' + req.headers.accept);
+  next();
+});
+
 router.get('/', function(req, res){
   res.json({
     items: [],
