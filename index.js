@@ -82,22 +82,22 @@ router.get('/', function(req, res){
         {
           rel: "first",
           page: 1,
-          href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
+          href: "https://bart-langelaan-rest-api.herokuapp.com/api/" + (limit ? "?start="+1+"&limit="+limit : "")
         },
         {
           rel: "last",
           page: start ? start + 1: 1,
-          href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
+          href: "https://bart-langelaan-rest-api.herokuapp.com/api/" + (limit ? "?start="+ db('items').size() +"&limit="+limit : "")
         },
         {
           rel: "previous",
           page: start ? start - 1 : 1,
-          href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
+          href: "https://bart-langelaan-rest-api.herokuapp.com/api/" + (limit ? "?start="+ (start - 1) +"&limit="+limit : "")
         },
         {
           rel: "next",
           page: start ? start + 1: 1,
-          href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
+          href: "https://bart-langelaan-rest-api.herokuapp.com/api/" + (limit ? "?start="+ (start + 1) +"&limit="+limit : "")
         }
       ]
     }
