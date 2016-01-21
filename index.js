@@ -44,22 +44,56 @@ router.options('/', function(req, res, next){
 // Collection: GET-method  =================================
 
 router.get('/', function(req, res){
-  var items = [{
-    id: 1,
-    title: "lol",
-    body: "haha",
-    user: "jawel",
-    links: [
+  var items = [
+    {
+      id: 1,
+      title: "Een titel",
+      body: "Een body",
+      user: "bart"
+    },
+    {
+      id: 2,
+      title: "Een titel",
+      body: "Een body",
+      user: "bart"
+    },
+    {
+      id: 3,
+      title: "Een titel",
+      body: "Een body",
+      user: "bart"
+    },
+    {
+      id: 4,
+      title: "Een titel",
+      body: "Een body",
+      user: "bart"
+    },
+    {
+      id: 5,
+      title: "Een titel",
+      body: "Een body",
+      user: "bart"
+    },
+    {
+      id: 6,
+      title: "Een titel",
+      body: "Een body",
+      user: "bart"
+    }
+  ];
+  items.forEach(function(item){
+    item.links = [
       {
         rel: "self",
-        href: "https://bart-langelaan-rest-api.herokuapp.com/api/1"
+        href: "https://bart-langelaan-rest-api.herokuapp.com/api/" + item.id
       },
       {
         rel: "collection",
         href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
       }
     ]
-  }];
+  });
   var data = {
     items: items,
     links: [{
