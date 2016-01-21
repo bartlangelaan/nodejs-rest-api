@@ -44,9 +44,56 @@ router.options('/', function(req, res, next){
 // Collection: GET-method  =================================
 
 router.get('/', function(req, res){
+  var items = [{
+    id: 1,
+    title: "lol",
+    body: "haha",
+    user: "jawel",
+    links: [
+      {
+        rel: "self",
+        href: "https://bart-langelaan-rest-api.herokuapp.com/api/1"
+      },
+      {
+        rel: "collection",
+        href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
+      }
+    ]
+  }];
   var data = {
-    items: [],
-    pagination: {}
+    items: items,
+    links: [{
+      rel: "self",
+      href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
+    }],
+    pagination: {
+      currentPage: 1,
+      currentItems: items.length,
+      totalPages: 1,
+      totalItems: items.length,
+      links: [
+        {
+          rel: "first",
+          page: 1,
+          href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
+        },
+        {
+          rel: "last",
+          page: 1,
+          href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
+        },
+        {
+          rel: "previous",
+          page: 1,
+          href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
+        },
+        {
+          rel: "next",
+          page: 1,
+          href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
+        }
+      ]
+    }
   };
   if(req.headers.accept == "application/json"){
     res.json(data);
