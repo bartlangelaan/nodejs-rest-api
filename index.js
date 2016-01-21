@@ -13,6 +13,9 @@ var serializer = new EasyXml({
   manifest: true
 });
 
+var API_DOMAIN = "https://bart-langelaan-rest-api.herokuapp.com/api/";
+//API_DOMAIN = "https://nkfiychwby.localtunnel.me/api/";
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
@@ -68,11 +71,11 @@ router.get('/', function(req, res){
     item.links = [
       {
         rel: "self",
-        href: "https://bart-langelaan-rest-api.herokuapp.com/api/" + item.id
+        href: API_DOMAIN + item.id
       },
       {
         rel: "collection",
-        href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
+        href: API_DOMAIN
       }
     ]
   });
@@ -80,7 +83,7 @@ router.get('/', function(req, res){
     items: items,
     links: [{
       rel: "self",
-      href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
+      href: API_DOMAIN
     }],
     pagination: {
       currentPage: start || 1,
@@ -91,22 +94,22 @@ router.get('/', function(req, res){
         {
           rel: "first",
           page: 1,
-          href: "https://bart-langelaan-rest-api.herokuapp.com/api/" + (limit ? "?start="+1+"&limit="+limit : "")
+          href: API_DOMAIN + (limit ? "?start="+1+"&limit="+limit : "")
         },
         {
           rel: "last",
           page: start ? start + 1: 1,
-          href: "https://bart-langelaan-rest-api.herokuapp.com/api/" + (limit ? "?start="+ db('items').size() +"&limit="+limit : "")
+          href: API_DOMAIN + (limit ? "?start="+ db('items').size() +"&limit="+limit : "")
         },
         {
           rel: "previous",
           page: start ? start - 1 : 1,
-          href: "https://bart-langelaan-rest-api.herokuapp.com/api/" + (limit ? "?start="+ (start - 1) +"&limit="+limit : "")
+          href: API_DOMAIN + (limit ? "?start="+ (start - 1) +"&limit="+limit : "")
         },
         {
           rel: "next",
           page: start ? start + 1: 1,
-          href: "https://bart-langelaan-rest-api.herokuapp.com/api/" + (limit ? "?start="+ (start + 1) +"&limit="+limit : "")
+          href: API_DOMAIN + (limit ? "?start="+ (start + 1) +"&limit="+limit : "")
         }
       ]
     }
