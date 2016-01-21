@@ -152,6 +152,13 @@ router.post('/', function(req, res){
   }
 });
 
+// Detail: OPTIONS-method  =================================
+
+router.options('/:id', function(req, res){
+  res.header('Allow', 'GET,PUT,DELETE,OPTIONS');
+  res.sendStatus(200);
+});
+
 // Detail: GET-method  =====================================
 
 router.get('/:id', function(req, res){
