@@ -45,7 +45,16 @@ router.options('/', function(req, res, next){
 // Collection: GET-method  =================================
 
 router.get('/', function(req, res){
-  items = db('items').value();
+  var items;
+  var start = req.query.start ? parseInt(req.query.start) : undefined;
+  var limit = req.query.limit ? parseInt(req.query.limit) : undefined;
+  if(limit)
+    items = db('items')
+        .chain()
+        .take(limit)
+        .value();
+  else
+    items = db('items').value();
   items.forEach(function(item){
     item.links = [
       {
@@ -65,10 +74,10 @@ router.get('/', function(req, res){
       href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
     }],
     pagination: {
-      currentPage: 1,
-      currentItems: items.length,
-      totalPages: 1,
-      totalItems: items.length,
+      currentPage: start || 1,
+      currentItems: limit || items.length,
+      totalPages: start ? start + 1: 1,
+      totalItems: db('items').size(),
       links: [
         {
           rel: "first",
@@ -77,17 +86,17 @@ router.get('/', function(req, res){
         },
         {
           rel: "last",
-          page: 1,
+          page: start ? start + 1: 1,
           href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
         },
         {
           rel: "previous",
-          page: 1,
+          page: start ? start - 1 : 1,
           href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
         },
         {
           rel: "next",
-          page: 1,
+          page: start ? start + 1: 1,
           href: "https://bart-langelaan-rest-api.herokuapp.com/api/"
         }
       ]
