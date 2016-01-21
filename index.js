@@ -3,6 +3,7 @@ var app = express();
 var low = require('lowdb');
 var storage = require('lowdb/file-sync');
 var uuid = require('uuid');
+var bodyParser = require('body-parser');
 var EasyXml = require('easyxml');
 var serializer = new EasyXml({
   singularizeChildren: true,
@@ -19,6 +20,11 @@ var API_DOMAIN = "https://bart-langelaan-rest-api.herokuapp.com/api/";
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
@@ -44,6 +50,9 @@ router.use(function(req, res, next){
       req.method + ' ' +
       req.url + ' ' +
       req.headers.accept);
+  if(Object.keys(req.body).length)
+    console.log('  ',req.body);
+  console.log('');
   next();
 });
 
@@ -123,6 +132,17 @@ router.get('/', function(req, res){
   }
   else{
     res.sendStatus(415);
+  }
+});
+
+// Collection: POST-method  ================================
+
+router.post('/', function(req, res){
+  if(req.body.title && req.body.body && req.body.user){
+    res.sendStatus(201);
+  }
+  else{
+    res.sendStatus(400);
   }
 });
 
