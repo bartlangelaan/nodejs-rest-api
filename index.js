@@ -15,7 +15,6 @@ var serializer = new EasyXml({
 });
 
 var API_DOMAIN = "https://bart-langelaan-rest-api.herokuapp.com/api/";
-API_DOMAIN = "https://nkfiychwby.localtunnel.me/api/";
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -180,7 +179,7 @@ router.get('/:id', function(req, res){
   }
 });
 
-// Detail: GET-method  =====================================
+// Detail: PUT-method  =====================================
 
 router.put('/:id', function(req, res){
   var data = db("items").find({

@@ -1,12 +1,10 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.1.5",
-  "description": "A sample Node.js app using Express 4",
+  "name": "nodejs-rest-api",
+  "version": "1.0.0",
+  "description": "A RESTful API. In NodeJS. Yeah.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "localtunnel": "lt --port 5000 --subdomain nkfiychwby",
-    "start-locally": "npm run localtunnel | npm run start"
+    "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "^1.14.2",
@@ -21,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/bartlangelaan/nodejs-rest-api"
   },
   "keywords": [
     "node",
